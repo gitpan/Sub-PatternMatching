@@ -1,6 +1,15 @@
-Sub::PatternMatching version 1.00
+Sub::PatternMatching version 1.01
 =================================
 
+Sub::PatternMatching implements "Pattern Matching," a programming idiom
+often found in functional languages like Haskell or OCaml. Pattern
+Matching refers to functions that do different things for different
+arguments. It is often referred to as polymorphism as well.
+
+The syntax is currently a bit convoluted taking away much from the
+benefit of readability by replacing nested if-else constructs with
+pattern matching. This is supposed to be fixed in a later release, but
+maintaining backward-compatibility.
 
 INSTALLATION
 

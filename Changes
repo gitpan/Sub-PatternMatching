@@ -1,6 +1,9 @@
 Revision history for Perl extension Sub::PatternMatching.
 
-0.01  Sun Mar 21 14:22:32 2004
+1.00  Sun Mar 21 14:22:32 2004
 	- original version; created by h2xs 1.21 with options
 		-AX Sub::PatternMatching
+
+1.01  Tue Mar 23 17:44:01 2004
+	- Fixed some documentation and packaging issues.
 

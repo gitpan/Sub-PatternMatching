@@ -10,76 +10,70 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 
-our %EXPORT_TAGS = ( 'all' => [ qw(
-	patternmatch
-) ] );
+our %EXPORT_TAGS = (
+    'all' => [
+        qw(
+          patternmatch
+          )
+    ]
+);
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our @EXPORT = qw(	
+our @EXPORT = qw(
   patternmatch
 );
-our $VERSION = '1.00';
-
-
+our $VERSION = '1.01';
 
 sub patternmatch {
-	my @patterns = validate_with(
-		params => \@_,
-		spec => [
-			{type => HASHREF|ARRAYREF},
-			{type => CODEREF},
-			(
-				(
-					{type => HASHREF|ARRAYREF},
-					{type => CODEREF}
-				)
-				x int( (@_ - 2) / 2 )
-			),
-			{ type => CODEREF, optional => 1 }
-		],
-		called => 'Sub::PatternMatching::patternmatch',
-	);
+    my @patterns = validate_with(
+        params => \@_,
+        spec   => [
+            { type => HASHREF | ARRAYREF },
+            { type => CODEREF },
+            (
+                ( { type => HASHREF | ARRAYREF }, { type => CODEREF } ) x
+                  int( ( @_ - 2 ) / 2 )
+            ),
+            { type => CODEREF, optional => 1 }
+        ],
+        called => 'Sub::PatternMatching::patternmatch',
+    );
 
-	my $default;
-	if (@patterns % 2) {
-		$default = pop @patterns;
-	}
-	else {
-		$default = sub {
-			croak "Unmatched parameter pattern passed " .
-			"to patternmatched subroutine";
-		};
-	}
+    my $default;
+    if ( @patterns % 2 ) {
+        $default = pop @patterns;
+    }
+    else {
+        $default = sub {
+            croak "Unmatched parameter pattern passed "
+              . "to patternmatched subroutine";
+        };
+    }
 
-	my $f = sub {
-		local $@;
-		my $to_execute = $default;
-		foreach my $i ( 0 .. @patterns/2 - 1 ) {
-			my $pat = $patterns[$i*2];
-			if (ref($pat) eq 'ARRAY') {
-				eval {
-					validate_pos(@_, @$pat);
-				};
-				next if $@;
-				$to_execute = $patterns[$i*2+1];
-				last;
-			}
-			else { # HASH
-				eval {
-					validate(@_, $pat);
-				};
-				next if $@;
-				$to_execute = $patterns[$i*2+1];
-				last;
-			}
-		}
-		goto &$to_execute;
-	};
-	
-	return $f;
+    my $f = sub {
+        local $@;
+        my $to_execute = $default;
+        foreach my $i ( 0 .. @patterns / 2 - 1 ) {
+            my $pat = $patterns[ $i * 2 ];
+            if ( ref($pat) eq 'ARRAY' ) {
+                eval { validate_pos( @_, @$pat ); };
+                next if $@;
+                $to_execute = $patterns[ $i * 2 + 1 ];
+                last;
+            }
+            else {    # HASH
+                eval { validate( @_, $pat ); };
+                next if $@;
+                $to_execute = $patterns[ $i * 2 + 1 ];
+                last;
+            }
+        }
+        goto &$to_execute;
+    };
+
+    return $f;
 }
-
 
 1;
 __END__
