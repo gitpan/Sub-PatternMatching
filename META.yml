@@ -1,0 +1,10 @@
+--- #YAML:1.0
+name: Sub-PatternMatching
+version: 1.00
+abstract: Functional languages' Pattern Matching
+license: perl
+distribution_type: module
+requires:
+  Test::More: 0
+  Params::Validate: 0
+dynamic_config: 0

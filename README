@@ -1,0 +1,35 @@
+Sub::PatternMatching version 1.00
+=================================
+
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+DEPENDENCIES
+
+This module requires these other modules and libraries:
+
+  Params::Validate
+
+SEE ALSO
+
+Current versions of this module may be found on http://steffen-mueller.net or
+CPAN.
+
+Please send your suggestions, inquiries, and feedback to pattern-module
+at steffen-mueller dot net. Bug reports should use RT or be mailed to
+bug-Sub-PatternMatching@rt.cpan.org
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2004 Steffen Mueller
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself. 
+
