@@ -4,7 +4,11 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'		=> 'Sub::PatternMatching',
     'VERSION_FROM'	=> 'lib/Sub/PatternMatching.pm', # finds $VERSION
-    'PREREQ_PM'		=> {Params::Validate => 0},
+    'PREREQ_PM'		=> {
+		Params::Validate => '0.69',
+		Test::More => 0,
+		Test::Pod => '1.00',
+	},
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM => 'lib/Sub/PatternMatching.pm',
        AUTHOR     => 'Steffen Mueller <pattern-module at steffen-mueller dot net>') : ()),

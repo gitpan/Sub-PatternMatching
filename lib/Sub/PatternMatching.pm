@@ -23,7 +23,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
   patternmatch
 );
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 sub patternmatch {
     my @patterns = validate_with(
@@ -301,6 +301,21 @@ matching currently takes an I<O(n)> performance hit for every call to the
 patternmatching function. I<n> is the number of branches, sets of conditions.
 Note that if you would implement your function with a giant if-elsif-else
 construct, you would end up with I<O(n)> as well.
+
+=head1 SUBROUTINES
+
+This is a list of public subroutines.
+
+=over 2
+
+=item patternmatch
+
+This subroutine creates (and returns) a new patternmatched function. Please
+refer to the section L<PATTERNS> for details on the syntax of patterns.
+
+  *functionname = patternmatch( PATTERN1, PATTERN2, ... );
+
+=back
 
 =head1 AUTHOR
 

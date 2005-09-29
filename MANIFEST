@@ -1,7 +1,10 @@
 Changes
+lib/Sub/PatternMatching.pm
+Makefile.PL
 MANIFEST
 META.yml
-Makefile.PL
 README
-lib/Sub/PatternMatching.pm
+t/00pod.t
+t/00podcover.t
 t/01basic.t
+
