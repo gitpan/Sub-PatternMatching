@@ -1,5 +1,8 @@
 Revision history for Perl extension Sub::PatternMatching.
 
+1.03  Tue Oct  4 21:42:26 2005
+	- Fixed distribution problems.
+
 1.02  Thu Sep 22 21:48:55 2005
 	- Changed the Params::Validate dependency from version "0" to
 	  at least 0.69 because versions up to 0.18 didn't support
