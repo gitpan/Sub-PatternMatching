@@ -1,5 +1,9 @@
 Revision history for Perl extension Sub::PatternMatching.
 
+1.04  Mon Nov  6 09:34:11 2006
+    - More distribution upgrading: examples, spec-conformant META.yml,
+      clear licensing.
+
 1.03  Tue Oct  4 21:42:26 2005
 	- Fixed distribution problems.
 

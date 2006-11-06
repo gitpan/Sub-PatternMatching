@@ -4,6 +4,7 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'		=> 'Sub::PatternMatching',
     'VERSION_FROM'	=> 'lib/Sub/PatternMatching.pm', # finds $VERSION
+    'LICENSE' => 'perl',
     'PREREQ_PM'		=> {
 		Params::Validate => '0.69',
 		Test::More => 0,

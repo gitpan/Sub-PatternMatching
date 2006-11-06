@@ -8,6 +8,8 @@ use Params::Validate qw/:all/;
 
 require Exporter;
 
+our $VERSION = '1.04';
+
 our @ISA = qw(Exporter);
 
 our %EXPORT_TAGS = (
@@ -23,7 +25,6 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
   patternmatch
 );
-our $VERSION = '1.03';
 
 sub patternmatch {
     my @patterns = validate_with(
@@ -319,8 +320,11 @@ refer to the section L<PATTERNS> for details on the syntax of patterns.
 
 =head1 AUTHOR
 
-Copyright (C) 2004 Steffen Mueller
-E<lt>pattern-module at steffen-mueller dot netE<gt>
+Steffen Mueller, E<lt>pattern-module at steffen-mueller dot netE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2004-2006 Steffen Mueller
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 
